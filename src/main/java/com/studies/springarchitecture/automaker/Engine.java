@@ -48,4 +48,15 @@ public class Engine {
     public void setType(MotorType type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "Engine{" +
+                "type=" + type +
+                ", literage=" + literage +
+                ", cylinders=" + cylinders +
+                ", power=" + power +
+                ", model='" + model + '\'' +
+                '}';
+    }
 }

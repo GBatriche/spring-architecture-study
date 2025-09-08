@@ -43,4 +43,11 @@ public class Car {
     public void setAutomaker(Automaker automaker) {
         this.automaker = automaker;
     }
+
+    public CarStatus getStart(Key key) {
+        if(key.getAutomaker() != this.automaker){
+            return new CarStatus("Not possible start this car!");
+        }
+        return new CarStatus("Car is on. This engine is "+ engine);
+    }
 }
