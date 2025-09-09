@@ -1,9 +1,6 @@
 package com.studies.springarchitecture.todos;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("todos")
@@ -18,5 +15,17 @@ public class TodoController {
     @PostMapping
     public TodoEntity save(@RequestBody TodoEntity todo){
         return this.service.save(todo);
+    }
+
+    @PutMapping("{id}")
+    public void updateStatus(@PathVariable("id") Integer id, @RequestBody TodoEntity todo){
+
+        todo.setId(id);
+        service.updateStatus(todo);
+    }
+
+    @GetMapping("{id}")
+    public TodoEntity search(@PathVariable("id")Integer id){
+        return service.searchById(id);
     }
 }
